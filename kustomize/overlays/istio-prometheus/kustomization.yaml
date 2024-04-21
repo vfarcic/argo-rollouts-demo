@@ -1,8 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../../base
-  - services.yaml
-  - rollout.yaml
-  - virtualservices.yaml
-  - gateway.yaml
+- ../../base
+- services.yaml
+- rollout.yaml
+- virtualservices.yaml
+- gateway.yaml
+images:
+- name: ghcr.io/vfarcic/silly-demo
+  newName: ghcr.io/vfarcic/silly-demo
+  newTag: 1.4.131
