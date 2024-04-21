@@ -1,0 +1,7 @@
+dashboard:
+  enabled: true
+  ingress:
+    enabled: true
+    ingressClassName: traefik
+    hosts:
+      - argo-rollouts.35.190.186.48.nip.io

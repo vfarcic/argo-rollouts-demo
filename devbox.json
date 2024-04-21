@@ -1,0 +1,20 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.10.5/.schema/devbox.schema.json",
+  "packages": [
+    "kind@0.22.0",
+    "argo-rollouts@1.6.0",
+    "kubectl-tree@0.4.3",
+    "kustomize@5.3.0",
+    "kubernetes-helm@3.14.3",
+    "yq-go@4.43.1",
+    "google-cloud-sdk@467.0.0",
+    "path:gcloud#google-cloud-sdk",
+    "jq@1.7.1"
+  ],
+  "shell": {
+    "init_hook": [
+      "PS1=\"➜ \""
+    ],
+    "scripts": {}
+  }
+}
