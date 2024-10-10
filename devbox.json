@@ -9,7 +9,9 @@
     "yq-go@4.43.1",
     "google-cloud-sdk@467.0.0",
     "path:gcloud#google-cloud-sdk",
-    "jq@1.7.1"
+    "jq@1.7.1",
+    "hey@0.1.4",
+    "zellij@0.40.1"
   ],
   "shell": {
     "init_hook": [
