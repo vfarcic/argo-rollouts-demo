@@ -1,0 +1,22 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: silly-demo-1
+spec:
+  gateways:
+  - silly-demo-gateway
+  hosts:
+  - silly-demo.34.23.100.162.nip.io
+  http:
+  - name: primary
+    route:
+    - destination:
+        host: silly-demo-stable
+        port:
+          number: 8080
+      weight: 100
+    - destination:
+        host: silly-demo-canary
+        port:
+          number: 8080
+      weight: 0

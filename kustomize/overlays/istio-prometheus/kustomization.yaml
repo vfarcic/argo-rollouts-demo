@@ -4,5 +4,6 @@ resources:
   - ../../base
   - services.yaml
   - rollout.yaml
-  - virtualservices.yaml
+  - virtualservice-01.yaml
+  - virtualservice-02.yaml
   - gateway.yaml

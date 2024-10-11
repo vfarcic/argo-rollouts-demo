@@ -11,12 +11,11 @@
     "path:gcloud#google-cloud-sdk",
     "jq@1.7.1",
     "hey@0.1.4",
-    "zellij@0.40.1"
+    "zellij@0.40.1",
+    "nushell@0.98.0"
   ],
   "shell": {
-    "init_hook": [
-      "PS1=\"➜ \""
-    ],
-    "scripts": {}
+    "init_hook": [],
+    "scripts":   {}
   }
 }

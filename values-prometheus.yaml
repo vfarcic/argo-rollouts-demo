@@ -3,30 +3,33 @@ grafana:
     enabled: true
     ingressClassName: traefik
     hosts:
-      - grafana.34.74.39.92.nip.io
+    - grafana.35.185.116.87.nip.io
 prometheus:
   ingress:
     enabled: true
     ingressClassName: traefik
     hosts:
-      - prometheus.34.74.39.92.nip.io
+    - grafana.35.185.116.87.nip.io
   prometheusSpec:
     additionalScrapeConfigs:
-      - job_name: istiod
-        kubernetes_sd_configs:
-          - role: endpoints
-            namespaces:
-              names:
-                - istio-system
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_service_name, __meta_kubernetes_endpoint_port_name]
-            action: keep
-            regex: istiod;http-monitoring
-      - job_name: 'envoy-stats'
-        metrics_path: /stats/prometheus
-        kubernetes_sd_configs:
-          - role: pod
-        relabel_configs:
-          - source_labels: [__meta_kubernetes_pod_container_port_name]
-            action: keep
-            regex: '.*-envoy-prom'
+    - job_name: istiod
+      kubernetes_sd_configs:
+      - role: endpoints
+        namespaces:
+          names:
+          - istio-system
+      relabel_configs:
+      - source_labels:
+        - __meta_kubernetes_service_name
+        - __meta_kubernetes_endpoint_port_name
+        action: keep
+        regex: istiod;http-monitoring
+    - job_name: envoy-stats
+      metrics_path: /stats/prometheus
+      kubernetes_sd_configs:
+      - role: pod
+      relabel_configs:
+      - source_labels:
+        - __meta_kubernetes_pod_container_port_name
+        action: keep
+        regex: .*-envoy-prom
