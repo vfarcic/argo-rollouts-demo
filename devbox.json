@@ -12,7 +12,12 @@
     "jq@1.7.1",
     "hey@0.1.4",
     "zellij@0.40.1",
-    "nushell@0.98.0"
+    "nushell@0.98.0",
+    "teller@2.0.7",
+    "eksctl@0.191.0",
+    "awscli2@2.17.64",
+    "aws-iam-authenticator@0.6.27",
+    "azure-cli@2.64.0"
   ],
   "shell": {
     "init_hook": [],

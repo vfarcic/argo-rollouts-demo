@@ -49,6 +49,230 @@
         }
       }
     },
+    "aws-iam-authenticator@0.6.27": {
+      "last_modified": "2024-09-20T05:11:28Z",
+      "resolved": "github:NixOS/nixpkgs/79454ee9aacc9714653a4e7eb2a52b717728caff#aws-iam-authenticator",
+      "source": "devbox-search",
+      "version": "0.6.27",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/79hww8i3rpq90r9acaqn85ig1n7k2x4n-aws-iam-authenticator-0.6.27",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/79hww8i3rpq90r9acaqn85ig1n7k2x4n-aws-iam-authenticator-0.6.27"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/bwlf0p8l3xsr6qlx5mvfnzny4w8xaqw4-aws-iam-authenticator-0.6.27",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/bwlf0p8l3xsr6qlx5mvfnzny4w8xaqw4-aws-iam-authenticator-0.6.27"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zi9ndw37vfbdgk10wv1zbj9v8kkl1c6l-aws-iam-authenticator-0.6.27",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/zi9ndw37vfbdgk10wv1zbj9v8kkl1c6l-aws-iam-authenticator-0.6.27"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/arbn4rrgq39cm0xjznivgyj8p81jm9ly-aws-iam-authenticator-0.6.27",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/arbn4rrgq39cm0xjznivgyj8p81jm9ly-aws-iam-authenticator-0.6.27"
+        }
+      }
+    },
+    "awscli2@2.17.64": {
+      "last_modified": "2024-10-08T08:54:18Z",
+      "resolved": "github:NixOS/nixpkgs/a2eacc0c62c0537bd1a7a60c1f91d1f3a59fd013#awscli2",
+      "source": "devbox-search",
+      "version": "2.17.64",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/75yn6zcb07jh325mmvdj1gn5pyb3c1xn-awscli2-2.17.64",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/06aqqv5r49a4hs9l2n7qkb0azvsjwq75-awscli2-2.17.64-dist"
+            }
+          ],
+          "store_path": "/nix/store/75yn6zcb07jh325mmvdj1gn5pyb3c1xn-awscli2-2.17.64"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/9vvhd7ly7zrpjgpxz88n2acqvswcm87f-awscli2-2.17.64",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/r2cgh55kj46pq8j73a96r34jasrscgn0-awscli2-2.17.64-dist"
+            }
+          ],
+          "store_path": "/nix/store/9vvhd7ly7zrpjgpxz88n2acqvswcm87f-awscli2-2.17.64"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/vzcrzdnp4l3njrdn7186ji52q2gs4hyx-awscli2-2.17.64",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/x7cjk126161n06wnkp76asibh58blcg4-awscli2-2.17.64-dist"
+            }
+          ],
+          "store_path": "/nix/store/vzcrzdnp4l3njrdn7186ji52q2gs4hyx-awscli2-2.17.64"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/zbbzmpsnn5s0gi4p00div7gc737pgwvf-awscli2-2.17.64",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/hjs9m0q1v928akxvgzincx5bwq10zmlc-awscli2-2.17.64-dist"
+            }
+          ],
+          "store_path": "/nix/store/zbbzmpsnn5s0gi4p00div7gc737pgwvf-awscli2-2.17.64"
+        }
+      }
+    },
+    "azure-cli@2.64.0": {
+      "last_modified": "2024-10-09T02:21:25Z",
+      "resolved": "github:NixOS/nixpkgs/2b58bfe2c0d73341362870a0f1e50b2b8f2e4b84#azure-cli",
+      "source": "devbox-search",
+      "version": "2.64.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ddp95wyfxh51ca6yxvnrdd26800l6fds-python3.12-azure-cli-2.64.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/kyjlb1hbfig8svacdpknhckg1ka3rjj0-python3.12-azure-cli-2.64.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/ddp95wyfxh51ca6yxvnrdd26800l6fds-python3.12-azure-cli-2.64.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/924nn53vqhn3qgcc57jb6pigf6hxpbh3-python3.12-azure-cli-2.64.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/lpsaz1winpxb1vfydfsf5b3i3dji6cg8-python3.12-azure-cli-2.64.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/924nn53vqhn3qgcc57jb6pigf6hxpbh3-python3.12-azure-cli-2.64.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ig9p45ldajp1hwzzsayqdwyjl1cw5g66-python3.12-azure-cli-2.64.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/ni52zs6g3dfnhw4b1sm9h29hzzf211ld-python3.12-azure-cli-2.64.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/ig9p45ldajp1hwzzsayqdwyjl1cw5g66-python3.12-azure-cli-2.64.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/3l4f49whgdp4z97qbp8asj925cp94yp9-python3.12-azure-cli-2.64.0",
+              "default": true
+            },
+            {
+              "name": "dist",
+              "path": "/nix/store/2zkqmqjbb2hc1425yqmlfvbmc9ahl4hs-python3.12-azure-cli-2.64.0-dist"
+            }
+          ],
+          "store_path": "/nix/store/3l4f49whgdp4z97qbp8asj925cp94yp9-python3.12-azure-cli-2.64.0"
+        }
+      }
+    },
+    "eksctl@0.191.0": {
+      "last_modified": "2024-09-27T09:34:34Z",
+      "resolved": "github:NixOS/nixpkgs/e0f477a570df7375172a08ddb9199c90853c63f0#eksctl",
+      "source": "devbox-search",
+      "version": "0.191.0",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/l5symjhkja123hrgx2z4la2l4r11fj7c-eksctl-0.191.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/l5symjhkja123hrgx2z4la2l4r11fj7c-eksctl-0.191.0"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/rwd4h1qqzvcz8z4xw8q058fsfx15qsci-eksctl-0.191.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/rwd4h1qqzvcz8z4xw8q058fsfx15qsci-eksctl-0.191.0"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/avjfx7l9mrmw2b4nwqbnmjf0zayfslmq-eksctl-0.191.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/avjfx7l9mrmw2b4nwqbnmjf0zayfslmq-eksctl-0.191.0"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ws8h17ibf29x9gg4wd0w20aazn5bq0hp-eksctl-0.191.0",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ws8h17ibf29x9gg4wd0w20aazn5bq0hp-eksctl-0.191.0"
+        }
+      }
+    },
     "google-cloud-sdk@467.0.0": {
       "last_modified": "2024-03-22T07:26:23-04:00",
       "resolved": "github:NixOS/nixpkgs/a3ed7406349a9335cb4c2a71369b697cecd9d351#google-cloud-sdk",
@@ -514,6 +738,54 @@
             }
           ],
           "store_path": "/nix/store/b4jwx295fqxg036jxb5bavvd4knikiix-nushell-0.98.0"
+        }
+      }
+    },
+    "teller@2.0.7": {
+      "last_modified": "2024-09-10T15:01:03Z",
+      "resolved": "github:NixOS/nixpkgs/5ed627539ac84809c78b2dd6d26a5cebeb5ae269#teller",
+      "source": "devbox-search",
+      "version": "2.0.7",
+      "systems": {
+        "aarch64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/ls269qpln16gfffw7i0lmsayv6x6ayrz-teller-2.0.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/ls269qpln16gfffw7i0lmsayv6x6ayrz-teller-2.0.7"
+        },
+        "aarch64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/2qa7biqab4mzv9w46nmzsi0s0xg1fp96-teller-2.0.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/2qa7biqab4mzv9w46nmzsi0s0xg1fp96-teller-2.0.7"
+        },
+        "x86_64-darwin": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/0c5qccip0drrpwxwhmwh40cmvqgjsbvm-teller-2.0.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/0c5qccip0drrpwxwhmwh40cmvqgjsbvm-teller-2.0.7"
+        },
+        "x86_64-linux": {
+          "outputs": [
+            {
+              "name": "out",
+              "path": "/nix/store/6bc6sqm14xg4byfc2186wfc2gfnllf4f-teller-2.0.7",
+              "default": true
+            }
+          ],
+          "store_path": "/nix/store/6bc6sqm14xg4byfc2186wfc2gfnllf4f-teller-2.0.7"
         }
       }
     },

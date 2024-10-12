@@ -2,9 +2,9 @@
 
 rm --force .env
 
-source get-hyperscaler.nu
-source kubernetes.nu
-source ingress.nu
+source scripts/get-hyperscaler.nu
+source scripts/kubernetes.nu
+source scripts/ingress.nu
 
 let hyperscaler = get-hyperscaler
 
@@ -44,15 +44,18 @@ mut istio_ip = ""
 
 if $hyperscaler == "aws" {
 
-#     istio_ipNAME=$(kubectl --namespace projectcontour get service contour-envoy --output jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+    let istio_hostname = (
+        kubectl --namespace istio-system
+            get service istio-ingress --output yaml
+            | from yaml
+            | get status.loadBalancer.ingress.0.hostname
+    )
 
-#     istio_ip=$(dig +short $istio_ipNAME) 
-
-#     while [ -z "$istio_ip" ]; do
-#         sleep 10
-#         istio_ipNAME=$(kubectl --namespace projectcontour get service contour-envoy --output jsonpath="{.status.loadBalancer.ingress[0].hostname}")
-#         istio_ip=$(dig +short $istio_ipNAME) 
-#     done
+    while $istio_ip == "" {
+        print "Waiting for Ingress Service IP..."
+        sleep 10sec
+        $istio_ip = (dig +short $istio_hostname)
+    }
 
 } else {
 
@@ -87,7 +90,7 @@ open values-prometheus.yaml
     | upsert grafana.ingress.ingressClassName $ingress_data.class
     | upsert grafana.ingress.hosts.0 $"grafana.($ingress_data.host)"
     | upsert prometheus.ingress.ingressClassName $ingress_data.class
-    | upsert prometheus.ingress.hosts.0 $"grafana.($ingress_data.host)"
+    | upsert prometheus.ingress.hosts.0 $"prometheus.($ingress_data.host)"
     | save values-prometheus.yaml --force
 
 (

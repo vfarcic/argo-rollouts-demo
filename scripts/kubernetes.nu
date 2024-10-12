@@ -35,15 +35,24 @@ Press any key to continue.
 
     } else if $hyperscaler == "aws" {
 
-        let aws_access_key_id = input $"(ansi green_bold)Enter AWS Access Key ID: (ansi reset)"
+        mut aws_access_key_id = ""
+        if $env.AWS_ACCESS_KEY_ID == "" {
+            $aws_access_key_id = input $"(ansi green_bold)Enter AWS Access Key ID: (ansi reset)"
+        }
         $"export AWS_ACCESS_KEY_ID=($aws_access_key_id)\n"
             | save --append .env
-    
-        let aws_secret_access_key = input $"(ansi green_bold)Enter AWS Secret Access Key: (ansi reset)" --suppress-output
+
+        mut aws_secret_access_key = ""
+        if $env.AWS_SECRET_ACCESS_KEY == "" {
+            $aws_secret_access_key = input $"(ansi green_bold)Enter AWS Secret Access Key: (ansi reset)" --suppress-output
+        }
         $"export AWS_SECRET_ACCESS_KEY=($aws_secret_access_key)\n"
             | save --append .env
     
-        let aws_account_id = input $"(ansi green_bold)Enter AWS Account ID: (ansi reset)"
+        mut aws_account_id = ""
+        if $env.AWS_ACCOUNT_ID == "" {
+            $aws_account_id = input $"(ansi green_bold)Enter AWS Account ID: (ansi reset)"
+        }
         $"export AWS_ACCOUNT_ID=($aws_account_id)\n"
             | save --append .env
     
@@ -113,6 +122,24 @@ def destroy_kubernetes [hyperscaler: string] {
         )
 
         gcloud projects delete $env.PROJECT_ID --quiet
+    
+    } else if $hyperscaler == "aws" {
+
+        (
+            eksctl delete addon --name aws-ebs-csi-driver
+                --cluster dot-production --region us-east-1
+        )
+
+        (
+            eksctl delete nodegroup --name primary
+                --cluster dot-production --drain=false
+                --region us-east-1 --wait
+        )
+
+        (
+            eksctl delete cluster
+                --config-file eksctl-config.yaml --wait
+        )
 
     }
 

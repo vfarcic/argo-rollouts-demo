@@ -12,15 +12,18 @@ def install_ingress [hyperscaler: string] {
 
     if $hyperscaler == "aws" {
 
-    #     INGRESS_IPNAME=$(kubectl --namespace projectcontour get service contour-envoy --output jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+        let ingress_hostname = (
+            kubectl --namespace traefik
+                get service traefik --output yaml
+                | from yaml
+                | get status.loadBalancer.ingress.0.hostname
+        )
 
-    #     INGRESS_IP=$(dig +short $INGRESS_IPNAME) 
-
-    #     while [ -z "$INGRESS_IP" ]; do
-    #         sleep 10
-    #         INGRESS_IPNAME=$(kubectl --namespace projectcontour get service contour-envoy --output jsonpath="{.status.loadBalancer.ingress[0].hostname}")
-    #         INGRESS_IP=$(dig +short $INGRESS_IPNAME) 
-    #     done
+        while $ingress_ip == "" {
+            print "Waiting for Ingress Service IP..."
+            sleep 10sec
+            $ingress_ip = (dig +short $ingress_hostname)
+        }
 
     } else {
 
@@ -33,10 +36,12 @@ def install_ingress [hyperscaler: string] {
                     | get status.loadBalancer.ingress.0.ip
             )
         }
-        $ingress_ip = $ingress_ip | lines | first
     }
 
+    $ingress_ip = $ingress_ip | lines | first
+
     $"export INGRESS_IP=($ingress_ip)\n" | save --append .env
+    $"export INGRESS_HOST=($ingress_ip).nip.io\n" | save --append .env
 
     {ip: $ingress_ip, host: $"($ingress_ip).nip.io", class: "traefik"}
 
