@@ -12,6 +12,8 @@ def install_ingress [hyperscaler: string] {
 
     if $hyperscaler == "aws" {
 
+        sleep 10sec
+
         let ingress_hostname = (
             kubectl --namespace traefik
                 get service traefik --output yaml
@@ -29,6 +31,7 @@ def install_ingress [hyperscaler: string] {
 
         while $ingress_ip == "" {
             print "Waiting for Ingress Service IP..."
+            sleep 10sec
             $ingress_ip = (
                 kubectl --namespace traefik
                     get service traefik --output yaml

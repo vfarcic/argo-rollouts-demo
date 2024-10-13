@@ -2,6 +2,8 @@
 
 def --env create_kubernetes [hyperscaler: string, min_nodes: int, max_nodes: int] {
 
+    rm --force kubeconfig.yaml
+
     $env.KUBECONFIG = $"($env.PWD)/kubeconfig.yaml"
     $"export KUBECONFIG=($env.KUBECONFIG)\n" | save --append .env
 
@@ -38,6 +40,8 @@ Press any key to continue.
         mut aws_access_key_id = ""
         if $env.AWS_ACCESS_KEY_ID == "" {
             $aws_access_key_id = input $"(ansi green_bold)Enter AWS Access Key ID: (ansi reset)"
+        } else {
+            $aws_access_key_id = $env.AWS_ACCESS_KEY_ID
         }
         $"export AWS_ACCESS_KEY_ID=($aws_access_key_id)\n"
             | save --append .env
@@ -45,6 +49,8 @@ Press any key to continue.
         mut aws_secret_access_key = ""
         if $env.AWS_SECRET_ACCESS_KEY == "" {
             $aws_secret_access_key = input $"(ansi green_bold)Enter AWS Secret Access Key: (ansi reset)" --suppress-output
+        } else {
+            $aws_secret_access_key = $env.AWS_SECRET_ACCESS_KEY
         }
         $"export AWS_SECRET_ACCESS_KEY=($aws_secret_access_key)\n"
             | save --append .env
@@ -52,6 +58,8 @@ Press any key to continue.
         mut aws_account_id = ""
         if $env.AWS_ACCOUNT_ID == "" {
             $aws_account_id = input $"(ansi green_bold)Enter AWS Account ID: (ansi reset)"
+        } else {
+            $aws_account_id = $env.AWS_ACCOUNT_ID
         }
         $"export AWS_ACCOUNT_ID=($aws_account_id)\n"
             | save --append .env
@@ -76,7 +84,14 @@ aws_secret_access_key = ($aws_secret_access_key)
 
     } else if $hyperscaler == "azure" {
 
-        az login
+        mut tenant_id = ""
+        if $env.AZURE_TENANT == "" {
+            $tenant_id = input $"(ansi green_bold)Enter Azure Tenant ID: (ansi reset)"
+        } else {
+            $tenant_id = $env.AZURE_TENANT
+        }
+
+        az login --tenant $tenant_id
 
         let resource_group = $"dot-(date now | format date "%Y%m%d%H%M%S")"
         $"export RESOURCE_GROUP=($resource_group)\n" | save --append .env
@@ -140,6 +155,10 @@ def destroy_kubernetes [hyperscaler: string] {
             eksctl delete cluster
                 --config-file eksctl-config.yaml --wait
         )
+
+    } else if $hyperscaler == "azure" {
+
+        az group delete --name $env.RESOURCE_GROUP --yes
 
     }
 

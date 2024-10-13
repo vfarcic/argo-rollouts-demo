@@ -44,6 +44,8 @@ mut istio_ip = ""
 
 if $hyperscaler == "aws" {
 
+    sleep 10sec
+
     let istio_hostname = (
         kubectl --namespace istio-system
             get service istio-ingress --output yaml
@@ -61,6 +63,7 @@ if $hyperscaler == "aws" {
 
     while $istio_ip == "" {
         print "Waiting for Ingress Service IP..."
+        sleep 10sec
         $istio_ip = (
             kubectl --namespace istio-system
                 get service istio-ingress --output yaml

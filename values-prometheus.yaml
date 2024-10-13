@@ -3,13 +3,13 @@ grafana:
     enabled: true
     ingressClassName: traefik
     hosts:
-    - grafana.52.87.27.248.nip.io
+    - grafana.51.8.235.74.nip.io
 prometheus:
   ingress:
     enabled: true
     ingressClassName: traefik
     hosts:
-    - prometheus.52.87.27.248.nip.io
+    - prometheus.51.8.235.74.nip.io
   prometheusSpec:
     additionalScrapeConfigs:
     - job_name: istiod
