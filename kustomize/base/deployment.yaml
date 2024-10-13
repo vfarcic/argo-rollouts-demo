@@ -15,8 +15,7 @@ spec:
         app: silly-demo
     spec:
       containers:
-      - env:
-        image: ghcr.io/vfarcic/silly-demo:1.4.126
+      - image: ghcr.io/vfarcic/silly-demo:1.4.126
         livenessProbe:
           httpGet:
             path: /
