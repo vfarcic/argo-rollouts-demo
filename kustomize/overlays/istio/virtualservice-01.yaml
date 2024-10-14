@@ -6,7 +6,7 @@ spec:
   gateways:
   - silly-demo-gateway
   hosts:
-  - silly-demo.51.8.236.203.nip.io
+  - silly-demo.34.73.187.46.nip.io
   http:
   - name: primary
     route:

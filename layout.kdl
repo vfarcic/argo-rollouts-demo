@@ -1,0 +1,21 @@
+layout {
+    default_tab_template {
+        children
+    }
+    tab name="Do" focus=true {
+        pane {
+            name "main"
+            size "50%"
+        }
+        pane split_direction="vertical" {
+            pane {
+                name "rollouts"
+                size "70%"
+            }
+            pane {
+                name "hey"
+                size "30%"
+            }
+        }
+    }
+}

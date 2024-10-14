@@ -42,9 +42,13 @@ kubectl label namespace a-team istio-injection=enabled --overwrite
 
 mut istio_ip = ""
 
-if $hyperscaler == "aws" {
+(
+    kubectl --namespace istio-system wait
+        --for=jsonpath="{.status.loadBalancer.ingress}"
+        service istio-ingress
+)
 
-    sleep 10sec
+if $hyperscaler == "aws" {
 
     let istio_hostname = (
         kubectl --namespace istio-system
@@ -63,7 +67,6 @@ if $hyperscaler == "aws" {
 
     while $istio_ip == "" {
         print "Waiting for Ingress Service IP..."
-        sleep 10sec
         $istio_ip = (
             kubectl --namespace istio-system
                 get service istio-ingress --output yaml
