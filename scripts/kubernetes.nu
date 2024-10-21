@@ -38,28 +38,28 @@ Press any key to continue.
     } else if $hyperscaler == "aws" {
 
         mut aws_access_key_id = ""
-        if $env.AWS_ACCESS_KEY_ID == "" {
-            $aws_access_key_id = input $"(ansi green_bold)Enter AWS Access Key ID: (ansi reset)"
-        } else {
+        if AWS_ACCESS_KEY_ID in $env {
             $aws_access_key_id = $env.AWS_ACCESS_KEY_ID
+        } else {
+            $aws_access_key_id = input $"(ansi green_bold)Enter AWS Access Key ID: (ansi reset)"
         }
         $"export AWS_ACCESS_KEY_ID=($aws_access_key_id)\n"
             | save --append .env
 
         mut aws_secret_access_key = ""
-        if $env.AWS_SECRET_ACCESS_KEY == "" {
-            $aws_secret_access_key = input $"(ansi green_bold)Enter AWS Secret Access Key: (ansi reset)" --suppress-output
-        } else {
+        if AWS_SECRET_ACCESS_KEY in $env {
             $aws_secret_access_key = $env.AWS_SECRET_ACCESS_KEY
+        } else {
+            $aws_secret_access_key = input $"(ansi green_bold)Enter AWS Secret Access Key: (ansi reset)" --suppress-output
         }
         $"export AWS_SECRET_ACCESS_KEY=($aws_secret_access_key)\n"
             | save --append .env
     
         mut aws_account_id = ""
-        if $env.AWS_ACCOUNT_ID == "" {
-            $aws_account_id = input $"(ansi green_bold)Enter AWS Account ID: (ansi reset)"
-        } else {
+        if AWS_ACCOUNT_ID in $env {
             $aws_account_id = $env.AWS_ACCOUNT_ID
+        } else {
+            $aws_account_id = input $"(ansi green_bold)Enter AWS Account ID: (ansi reset)"
         }
         $"export AWS_ACCOUNT_ID=($aws_account_id)\n"
             | save --append .env
@@ -85,10 +85,10 @@ aws_secret_access_key = ($aws_secret_access_key)
     } else if $hyperscaler == "azure" {
 
         mut tenant_id = ""
-        if $env.AZURE_TENANT == "" {
-            $tenant_id = input $"(ansi green_bold)Enter Azure Tenant ID: (ansi reset)"
-        } else {
+        if AZURE_TENANT in $env {
             $tenant_id = $env.AZURE_TENANT
+        } else {
+            $tenant_id = input $"(ansi green_bold)Enter Azure Tenant ID: (ansi reset)"
         }
 
         az login --tenant $tenant_id
